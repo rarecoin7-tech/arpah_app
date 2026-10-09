@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اربح واسحب</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f5f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      margin: 20px auto;
+      border-radius: 18px;
+      max-width: 400px;
+      box-shadow: 0 3px 12px #0001;
+    }
+    h1 { color: #087f5b; }
+    .points {
+      font-size: 36px;
+      font-weight: bold;
+      color: #087f5b;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 10px;
+      background: #087f5b;
+      color: white;
+      font-size: 17px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      border: 1px solid #ccc;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>اربح واسحب 🎁</h1>
+    <p>اجمع النقاط وتابع مكافآتك</p>
+    <p>رصيد نقاطك</p>
+    <div class="points" id="points">0</div>
+    <button onclick="dailyReward()">المكافأة اليومية</button>
+    <p id="message"></p>
+  </div>
+
+  <div class="card">
+    <h2>طلب سحب رصيد الهاتف</h2>
+    <input id="phone" type="tel" placeholder="رقم الهاتف">
+    <button onclick="withdraw()">طلب السحب</button>
+    <p id="withdrawMessage"></p>
+  </div>
+
+  <script>
+    let points = Number(localStorage.getItem('points') || 0);
+    document.getElementById('points').textContent = points;
+
+    function dailyReward() {
+      const today = new Date().toDateString();
+
+      if (localStorage.getItem('rewardDate') === today) {
+        document.getElementById('message').textContent =
+          'لقد حصلت على مكافأتك اليوم بالفعل.';
+        return;
+      }
+
+      points += 10;
+      localStorage.setItem('points', points);
+      localStorage.setItem('rewardDate', today);
+      document.getElementById('points').textContent = points;
+      document.getElementById('message').textContent =
+        'مبروك! حصلت على 10 نقاط تجريبية.';
+    }
+
+    function withdraw() {
+      document.getElementById('withdrawMessage').textContent =
+        'هذه واجهة تجريبية فقط؛ نظام السحب الحقيقي لم يُفعّل بعد.';
+    }
+  </script>
+</body>
+</html>
