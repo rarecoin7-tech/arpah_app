@@ -1,0 +1,27 @@
+{
+  "name": "arbah-w-as7ab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "تطبيق اربح واسحب: خلفية Node.js وواجهة ويب تُغلّف كتطبيق أندرويد",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.5.0",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor-community/admob": "^6.0.0"
+  }
+}
